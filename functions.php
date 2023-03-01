@@ -1,4 +1,5 @@
 <?php
+require get_template_directory() . '/theme_options/brain_options.php';  
 
 function scripts_styles_theme(){
 
@@ -23,6 +24,54 @@ function scripts_styles_theme(){
 
 }
 
-
 add_action('wp_enqueue_scripts' , 'scripts_styles_theme');
+
+
+/** =====================  Add admin menu ================================ */
+
+add_action('admin_menu','wave_theme_option');
+
+function wave_theme_option(){
+   add_menu_page('theme-options' , 'W theme option' , 'manage_options','theme-options', 'wave_custom_theme','dashicons-admin-customizer');
+}
+
+function wave_custom_theme(){ ?>
+    
+      <div>
+        <h1>Theme options Panel</h1>
+        <span><?php   settings_errors();  ?></span>
+        <form method="post" action="options.php">
+            <?php  settings_fields('section');   
+                   do_settings_sections('theme-options');
+                   submit_button('บันทึก');
+            ?>
+        </form>
+      </div>
+
+<?php }
+
+/** setting options */
+
+function theme_options_setting(){
+
+    //step #1
+    add_settings_section('section','', null, 'theme-options' , array());
+
+    //step #2
+    add_settings_field( 'chennel_name', 'Chennel Name', 'display_chennel_name', 'theme-options' , 'section',array());
+
+    //step #3
+    register_setting( 'section', 'chennel_name',  array());
+}
+
+add_action('admin_init' , 'theme_options_setting');
+
+   //step #4
+function display_chennel_name(){ ob_start(); ?>
+     
+     <label>Name :</label>
+     <input type="text" name="chennel_name" value="<?php  echo get_option('chennel_name'); ?>" id="chennel_name">
+
+<?php  echo ob_get_clean(); }
+
 

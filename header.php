@@ -23,7 +23,7 @@
   <header id="header" class="bsb-tpl-header-sticky bsb-tpl-header-sticky-animation-no">
 
     <!-- Navbar 1 - Bootstrap Brain Component -->
-    <nav id="scrollspyNav" class="navbar navbar-expand-md wave-bg-blue bsb-navbar bsb-navbar-hover bsb-navbar-caret">
+    <nav id="scrollspyNav" class="navbar navbar-expand-md wave-bg-blue bsb-navbar bsb-navbar-hover bsb-navbar-caret" style="background: <?php  echo get_theme_mod('brain_color_setting');   ?>">
       <div class="container">
         <a class="navbar-brand" href="index.html">
           <img src="./assets/img/branding/wave-logo.svg" class="bsb-tpl-logo" alt="">
