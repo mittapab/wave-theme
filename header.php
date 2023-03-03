@@ -40,30 +40,51 @@
           </div>
           <div class="offcanvas-body">
             <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
+              <?php 
+              
+              $nave_menu =  get_option("menu_wave");
+              if(isset($nave_menu['home'])) {  ?>
+
               <li class="nav-item">
                 <a class="nav-link active" href="#scrollspyNav" aria-current="page" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Home</a>
               </li>
+              
+              <?php }
+               if(isset($nave_menu['service'])) {  ?>
               <li class="nav-item">
                 <a class="nav-link" href="#scrollspyServices" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Services</a>
               </li>
+             <?php } 
+               if(isset($nave_menu['portfolio'])) {   ?>
               <li class="nav-item">
                 <a class="nav-link" href="#scrollspyPortfolio" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Portfolio</a>
               </li>
+              <?php } 
+               if(isset($nave_menu['about'])) { ?>
               <li class="nav-item">
                 <a class="nav-link" href="#scrollspyAbout" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">About</a>
               </li>
+              <?php } 
+                if(isset($nave_menu['team'])) { ?>
               <li class="nav-item">
                 <a class="nav-link" href="#scrollspyTeam" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Team</a>
               </li>
+              <?php }
+              if(isset($nave_menu['pricing'])) {  ?>
               <li class="nav-item">
                 <a class="nav-link" href="#scrollspyPricing" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Pricing</a>
               </li>
+              <?php }
+               if(isset($nave_menu['blog'])) {  ?>
               <li class="nav-item">
                 <a class="nav-link" href="#scrollspyBlog" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Blog</a>
               </li>
+              <?php } 
+               if(isset($nave_menu['contact'])) {?>
               <li class="nav-item">
                 <a class="nav-link" href="#scrollspyContact" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Contact</a>
               </li>
+              <?php } ?>
             </ul>
           </div>
         </div>

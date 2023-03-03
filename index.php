@@ -1,18 +1,56 @@
 <?php  get_header();  ?>
 
-<?php get_template_part('template_part/brain'); ?>
+<?php 
+$menu_wave = get_option('menu_wave');
+
+    if(isset($menu_wave['home'])){
+      get_template_part('template_part/brain'); 
+    } 
+?>
   <!-- Main -->
   <main id="main">
     
-   <?php get_template_part('template_part/services');    ?>
-   <?php get_template_part('template_part/call_to_action'); ?>
-   <?php get_template_part('template_part/portfolios'); ?>
-   <?php get_template_part('template_part/about'); ?>
-   <?php get_template_part('template_part/team'); ?>
-   <?php get_template_part('template_part/price'); ?>
-   <?php get_template_part('template_part/testimonail'); ?>
-   <?php get_template_part('template_part/blog'); ?>
-   <?php get_template_part('template_part/contact'); ?>
+   <?php 
+   
+   
+   if(isset($menu_wave['service'])){
+    get_template_part('template_part/services');
+    get_template_part('template_part/call_to_action');   
+   } 
+
+   if(isset($menu_wave['portfolio'])){
+    get_template_part('template_part/portfolios');
+   } 
+
+   if(isset($menu_wave['about'])){
+    get_template_part('template_part/about');
+   } 
+
+   if(isset($menu_wave['team'])){
+    get_template_part('template_part/team');
+   } 
+
+   if(isset($menu_wave['pricing'])){
+    get_template_part('template_part/price');
+    get_template_part('template_part/testimonail'); 
+   } 
+
+   if(isset($menu_wave['blog'])){
+    get_template_part('template_part/blog');
+   } 
+   
+   if(isset($menu_wave['contact'])){
+    get_template_part('template_part/contact');
+   } 
+   
+   
+   
+   
+
+  
+ 
+   
+    ?>
 
 
   </main>

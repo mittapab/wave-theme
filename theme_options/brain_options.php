@@ -93,7 +93,7 @@ function custom_theme_panel($wp_customize){
         $wp_customize, 
         'link_color', 
         array(
-            'label'      => __( 'Color', 'Background' ),
+            'label'      => __( 'Background Color', 'Background' ),
             'section'    => 'custom_brain_section_area',
             'settings'   => 'brain_color_setting',
         ) ) 

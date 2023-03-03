@@ -1,5 +1,6 @@
 <?php
 require get_template_directory() . '/theme_options/brain_options.php';  
+require get_template_directory() . '/theme_options/service_options.php';  
 
 function scripts_styles_theme(){
 
@@ -62,16 +63,39 @@ function theme_options_setting(){
 
     //step #3
     register_setting( 'section', 'chennel_name',  array());
+
+
+
+   
+    add_settings_field( 'menu_wave', 'Display menu', 'display_menu_wave', 'theme-options' , 'section',array());
+
+    register_setting( 'section', 'menu_wave',  array());
 }
 
 add_action('admin_init' , 'theme_options_setting');
 
    //step #4
-function display_chennel_name(){ ob_start(); ?>
+function display_chennel_name(){  ?>
      
      <label>Name :</label>
      <input type="text" name="chennel_name" value="<?php  echo get_option('chennel_name'); ?>" id="chennel_name">
 
-<?php  echo ob_get_clean(); }
+<?php   }
+
+function display_menu_wave(){ 
+    $menu_wave = get_option('menu_wave'); 
+    ?>
+
+    <label>Display menu</label> <br>
+    <input type="checkbox" name="menu_wave[home]" <?php echo (isset($menu_wave['home'])) ? 'checked':''; ?> /> Home  <br>
+    <input type="checkbox" name="menu_wave[service]" <?php echo (isset($menu_wave['service'])) ? 'checked':''; ?> /> Service  <br>
+    <input type="checkbox" name="menu_wave[portfolio]" <?php echo (isset($menu_wave['portfolio'])) ? 'checked':''; ?> /> Portfolio  <br>
+    <input type="checkbox" name="menu_wave[team]" <?php echo (isset($menu_wave['team'])) ? 'checked':''; ?>  /> Team  <br>
+    <input type="checkbox" name="menu_wave[pricing]" <?php echo (isset($menu_wave['pricing'])) ? 'checked':''; ?> /> Pricing  <br>
+    <input type="checkbox" name="menu_wave[blog]" <?php echo (isset($menu_wave['blog'])) ? 'checked':''; ?> /> Blog  <br>
+    <input type="checkbox" name="menu_wave[contact]" <?php echo (isset($menu_wave['contact'])) ? 'checked':''; ?> /> Contact  <br>
+    <input type="checkbox" name="menu_wave[about]" <?php echo (isset($menu_wave['about'])) ? 'checked':''; ?> /> About  <br>
+
+<?php }
 
 
